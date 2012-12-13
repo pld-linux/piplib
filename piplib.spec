@@ -6,11 +6,12 @@ Summary:	Parametric Integer Programming library
 Summary(pl.UTF-8):	Biblioteka do parametrycznego programowania całkowitoliczbowego
 Name:		piplib
 Version:	1.4.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.bastoul.net/cloog/pages/download/%{name}-%{version}.tar.gz
 # Source0-md5:	f5d1c7d45c5c40c0d64fa7d6bb143740
+Patch0:		format-security.patch
 URL:		http://www.piplib.org/
 BuildRequires:	autoconf >= 2.13
 BuildRequires:	automake
@@ -84,6 +85,7 @@ Dokumentacja API biblioteki PIP.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}

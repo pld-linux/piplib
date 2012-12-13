@@ -1,0 +1,11 @@
+--- piplib-1.4.0/source/maind.c~	2009-07-21 10:52:26.000000000 +0200
++++ piplib-1.4.0/source/maind.c	2012-12-13 12:57:16.407350568 +0100
+@@ -133,7 +133,7 @@
+    }
+  }
+ 	
+- if(verbose >= 0) fprintf(stderr, version);
++ if(verbose >= 0) fprintf(stderr, "%s", version);
+  if(argc > p)
+  { if(strcmp(argv[p], "-z") == 0)
+    { simple = 1;
