@@ -1,12 +1,12 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# do not build and package API docs
-#
+
 Summary:	Parametric Integer Programming library
 Summary(pl.UTF-8):	Biblioteka do parametrycznego programowania całkowitoliczbowego
 Name:		piplib
 Version:	1.4.0
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.bastoul.net/cloog/pages/download/%{name}-%{version}.tar.gz
@@ -33,8 +33,8 @@ accesses or system calls. The user only needs to link his programs
 with C libraries.
 
 %description -l pl.UTF-8
-PIP/PipLib to biblioteka implementująca dobrze znany algorytm
-Paula Featriera rozwiązywania problemów parametrycznego programowania
+PIP/PipLib to biblioteka implementująca dobrze znany algorytm Paula
+Featriera rozwiązywania problemów parametrycznego programowania
 całkowitoliczbowego. PIP znajduje leksykograficzne minimum zbioru
 punktów całkowitych leżących wewnątrz wielościanu wypukłego.
 Wielościan może zależeć liniowo od jednego lub większej liczby
@@ -76,6 +76,9 @@ Statyczna biblioteka PIP.
 Summary:	PIP API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki PIP
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API and internal documentation for PIP library.
@@ -97,7 +100,6 @@ Dokumentacja API biblioteki PIP.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
